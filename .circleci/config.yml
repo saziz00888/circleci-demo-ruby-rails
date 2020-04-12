@@ -2,7 +2,7 @@ version: 2	# Use the latest 2.1 version of CircleCI pipeline process engine. See
 
 version: 2.1
 references: #Use a package of configuration called an orb.
- default_docker_ruby_executor: &default_docker_ruby_executor	
+ default_docker_ruby_executor: &default_docker_ruby_executor
  orbs:
  image: circleci/ruby:2.6.3-stretch-node	  # Declare a dependency on the welcome-orb
  environment:	  welcome: circleci/welcome-orb@0.4.1
