@@ -3,7 +3,8 @@ references: #Use a package of configuration called an orb.
  default_docker_ruby_executor: &default_docker_ruby_executor
  orbs:
  image: circleci/ruby:2.6.3-stretch-node	  # Declare a dependency on the welcome-orb
- environment: welcome: circleci/welcome-orb@0.4.1
+ environment: 
+ welcome: circleci/welcome-orb@0.4.1
   BUNDLE_JOBS: 3 # Orchestrate or schedule a set of jobs
   BUNDLE_RETRY: 3	
   BUNDLE_PATH: vendor/bundle	
@@ -90,12 +91,14 @@ jobs:
           path: /tmp/test-results	
           destination: test-results	
 
-workflows:	workflows:
+workflows:	
   version: 2	  # Name the workflow "welcome"
-  build_and_test:	  welcome:
+  build_and_test:	  
+  welcome:
     # Run the welcome/run job in its own container
-    jobs:	    jobs:
-      - build	      - welcome/run 
+    jobs:	    
+      - build	      
+      - welcome/run 
       - test:	
           requires:	
             - build
